@@ -2,6 +2,7 @@ import {
   AUTH_ERROR,
   CLEAR_ERRORS,
   FETCH_LOADING,
+  LOAD_USER,
   REGISTER_USER,
 } from "../actionTypes";
 
@@ -23,6 +24,14 @@ export default (state, action) => {
         userInfo: action.payload.user,
         isLoading: false,
         msg: action.payload.msg,
+      };
+    case LOAD_USER:
+      return {
+        ...state,
+        userInfo: action.payload,
+        currentUser: action.payload.first_name,
+        isAuthenticated:
+          action.payload.message === "jwt malformed" ? false : true,
       };
     case AUTH_ERROR:
       localStorage.removeItem("token");
