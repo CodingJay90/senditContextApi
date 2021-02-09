@@ -3,6 +3,7 @@ import {
   CLEAR_ERRORS,
   FETCH_LOADING,
   LOAD_USER,
+  LOGIN_USER,
   REGISTER_USER,
 } from "../actionTypes";
 
@@ -24,6 +25,17 @@ export default (state, action) => {
         userInfo: action.payload.user,
         isLoading: false,
         msg: action.payload.msg,
+      };
+    case LOGIN_USER:
+      localStorage.setItem("token", action.payload.token);
+      return {
+        ...state,
+        isAuthenticated: true,
+        token: action.payload.token,
+        msg: action.payload.msg,
+        success: true,
+        msg: action.payload.msg,
+        isLoading: false,
       };
     case LOAD_USER:
       return {

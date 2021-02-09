@@ -45,6 +45,28 @@ export function AuthProvider({ children }) {
       .catch((err) => console.log(err));
   };
 
+  //login user
+  const loginUser = (user) => (dispatch) => {
+    dispatch(setItemsLoading());
+    fetch("https://sendit-parcel.herokuapp.com/auth/login", {
+      method: "POST",
+      body: JSON.stringify(user),
+      headers: {
+        "Content-type": "Application/json",
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (!data.success === false) {
+          dispatch({ type: types.LOGIN_USER, payload: data });
+        } else {
+          dispatch({ type: types.AUTH_ERROR, payload: data });
+        }
+      })
+      .catch((err) => console.log(err));
+  };
+
   //load up userInfo
 
   const loadUser = () => {
@@ -74,7 +96,7 @@ export function AuthProvider({ children }) {
   //return provider
   return (
     <AuthContext.Provider
-      value={{ state, registerUser, clearErrors, loadUser }}
+      value={{ state, registerUser, loginUser, clearErrors, loadUser }}
     >
       {children}
     </AuthContext.Provider>
