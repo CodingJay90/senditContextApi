@@ -15,14 +15,14 @@ const Navbar = () => {
 
   const history = useHistory();
 
-  //   function logout() {
-  //     localStorage.removeItem("token");
-  //     toast.success("Logging you out");
-  //     setTimeout(() => {
-  //       history.push("/");
-  //       window.location.reload();
-  //     }, 1500);
-  //   }
+  function logout() {
+    localStorage.removeItem("token");
+    toast.success("Logging you out");
+    setTimeout(() => {
+      history.push("/");
+      window.location.reload();
+    }, 1500);
+  }
 
   return (
     <>
@@ -49,7 +49,7 @@ const Navbar = () => {
                   {currentUser}
                 </NavLink>
               </li>
-              <li>
+              <li onClick={logout}>
                 <span type="button" activestyle={activestyle} className="auth">
                   Logout
                 </span>
