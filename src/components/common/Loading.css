@@ -1,0 +1,21 @@
+.buttonload {
+  background-color: #4caf50; /* Green background */
+  background: linear-gradient(90deg, #3f33e7, #15d8f1);
+  opacity: 0.5;
+  width: 50%;
+  border: none; /* Remove borders */
+  color: white; /* White text */
+  padding: 12px 24px; /* Some padding */
+  font-size: 16px; /* Set a font-size */
+  display: block;
+  margin: 1rem auto;
+  border-radius: 5px;
+  cursor: not-allowed;
+}
+
+/* Add a right margin to each icon */
+.fa {
+  margin-left: -12px;
+  margin-right: 8px;
+  /* font-size: xx-large; */
+}

@@ -1,23 +1,28 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./Navbar.css";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { NavLink, useHistory } from "react-router-dom";
+import { AuthContext } from "../../contexts/AuthContext";
 
 const Navbar = () => {
+  //get data from auth context
+  const {
+    state: { isAuthenticated, currentUser, token },
+  } = useContext(AuthContext);
   toast.configure();
   const activestyle = { borderBottom: " 5px solid rgba(255, 255, 255, 0.2)" };
 
   const history = useHistory();
 
-  //   function logout() {
-  //     localStorage.removeItem("token");
-  //     toast.success("Logging you out");
-  //     setTimeout(() => {
-  //       history.push("/");
-  //       window.location.reload();
-  //     }, 1500);
-  //   }
+  function logout() {
+    localStorage.removeItem("token");
+    toast.success("Logging you out");
+    setTimeout(() => {
+      history.push("/");
+      window.location.reload();
+    }, 1500);
+  }
 
   return (
     <>
@@ -32,23 +37,43 @@ const Navbar = () => {
             </li>
           </ul>
 
-          <ul>
-            <li>
-              <NavLink
-                to="/register"
-                activestyle={activestyle}
-                className="auth"
-              >
-                {" "}
-                Sign Up
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to="/login" activestyle={activestyle} className="auth">
-                Login
-              </NavLink>
-            </li>
-          </ul>
+          {isAuthenticated || token ? (
+            <ul>
+              <li>
+                <NavLink
+                  to="/register"
+                  activestyle={activestyle}
+                  className="auth"
+                >
+                  {" "}
+                  {currentUser}
+                </NavLink>
+              </li>
+              <li onClick={logout}>
+                <span type="button" activestyle={activestyle} className="auth">
+                  Logout
+                </span>
+              </li>
+            </ul>
+          ) : (
+            <ul>
+              <li>
+                <NavLink
+                  to="/register"
+                  activestyle={activestyle}
+                  className="auth"
+                >
+                  {" "}
+                  Sign Up
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to="/login" activestyle={activestyle} className="auth">
+                  Login
+                </NavLink>
+              </li>
+            </ul>
+          )}
         </nav>
       </header>
     </>
