@@ -2,13 +2,18 @@ import { Redirect, Route, Switch } from "react-router-dom";
 import Navbar from "./components/navbar/Navbar";
 import Home from "./components/home/Home";
 import "./App.css";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { AuthContext } from "./contexts/AuthContext";
 import Register from "./components/auth/Register";
 
 function App() {
-  const state = useContext(AuthContext);
+  const { state, loadUser } = useContext(AuthContext);
   console.log(state);
+
+  useEffect(() => {
+    loadUser();
+  }, [state.isAuthenticated]);
+
   return (
     <div className="App">
       <Navbar />
