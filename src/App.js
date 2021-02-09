@@ -2,13 +2,13 @@ import { Redirect, Route, Switch } from "react-router-dom";
 import Navbar from "./components/navbar/Navbar";
 import Home from "./components/home/Home";
 import "./App.css";
-// import { useContext } from "react";
-// import { AuthContext } from "./contexts/AuthContext";
-// import Register from "./components/auth/Register";
+import { useContext } from "react";
+import { AuthContext } from "./contexts/AuthContext";
+import Register from "./components/auth/Register";
 
 function App() {
-  // const state = useContext(AuthContext);
-  // console.log(state);
+  const state = useContext(AuthContext);
+  console.log(state);
   return (
     <div className="App">
       <Navbar />
