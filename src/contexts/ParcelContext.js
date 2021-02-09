@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useReducer } from "react";
+import React, { createContext, useContext, useEffect, useReducer } from "react";
 import { AuthContext } from "./AuthContext";
 import ParcelReducer from "./reducers/ParcelReducer";
 import * as types from "./actionTypes";
@@ -20,9 +20,14 @@ export default function ParcelProvider({ children }) {
   const {
     state: { userInfo, token },
   } = useContext(AuthContext);
+  console.log(userInfo);
 
+  useEffect(() => {
+    loadParcels();
+  }, [userInfo]);
   const loadParcels = () => {
     const userId = userInfo && userInfo.id; //check if userdata is loaded
+    console.log(userId);
     dispatch(setParcelLoading());
     fetch(`https://sendit-parcel.herokuapp.com/parcels/${userId}`, {
       headers: {
@@ -106,6 +111,7 @@ export default function ParcelProvider({ children }) {
   return (
     <ParcelContext.Provider
       value={{
+        state,
         loadParcels,
         createParcel,
         clearErrors,

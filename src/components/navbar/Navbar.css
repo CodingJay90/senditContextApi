@@ -50,12 +50,18 @@ span {
   font-weight: 300;
   cursor: pointer;
   padding: 0.7rem;
+  transition: 0.15s ease;
 }
 
 header nav a:hover,
 header nav span:hover {
   border: 1px solid #fff;
   border-radius: 30px;
+  border-color: hsl(125, 71%, 66%);
+}
+
+header nav ul:nth-of-type(2) a:nth-of-type(1) {
+  text-transform: capitalize;
 }
 
 header nav ul {

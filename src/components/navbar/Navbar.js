@@ -40,11 +40,7 @@ const Navbar = () => {
           {isAuthenticated || token ? (
             <ul>
               <li>
-                <NavLink
-                  to="/register"
-                  activestyle={activestyle}
-                  className="auth"
-                >
+                <NavLink to="/" activestyle={activestyle} className="auth">
                   {" "}
                   {currentUser}
                 </NavLink>

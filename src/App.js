@@ -6,14 +6,17 @@ import { useContext, useEffect } from "react";
 import { AuthContext } from "./contexts/AuthContext";
 import Register from "./components/auth/Register";
 import Login from "./components/auth/Login";
+import UserDashBoard from "./components/userDashboard/UserDashBoard";
 
 function App() {
-  const { state, loadUser } = useContext(AuthContext);
-  console.log(state);
+  const {
+    state: { isAuthenticated, token },
+    loadUser,
+  } = useContext(AuthContext);
 
   useEffect(() => {
     loadUser();
-  }, [state.isAuthenticated]);
+  }, [isAuthenticated]);
 
   return (
     <div className="App">
@@ -22,9 +25,9 @@ function App() {
         <Route exact path="/" component={Home} />
         <Route path="/register" component={Register} />
         <Route path="/login" component={Login} />
+        {!token ? <Redirect to="/login" /> : <UserDashBoard />}
 
         {/* <Route path="/userDashboard">
-          {!token ? <Redirect to="/login" /> : <UserDashBoard />}
         </Route>
         <Route path="/createParcel" component={CreateParcel} />
         <Route path="/editDestination" component={EditPickupDestination} /> */}
