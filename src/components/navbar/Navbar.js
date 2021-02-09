@@ -8,7 +8,7 @@ import { AuthContext } from "../../contexts/AuthContext";
 const Navbar = () => {
   //get data from auth context
   const {
-    state: { isAuthenticated, currentUser },
+    state: { isAuthenticated, currentUser, token },
   } = useContext(AuthContext);
   toast.configure();
   const activestyle = { borderBottom: " 5px solid rgba(255, 255, 255, 0.2)" };
@@ -37,7 +37,7 @@ const Navbar = () => {
             </li>
           </ul>
 
-          {isAuthenticated ? (
+          {isAuthenticated || token ? (
             <ul>
               <li>
                 <NavLink
