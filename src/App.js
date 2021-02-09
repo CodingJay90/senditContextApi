@@ -14,7 +14,7 @@ function App() {
       <Navbar />
       <Switch>
         <Route exact path="/" component={Home} />
-        {/* <Route path="/register" component={Register} /> */}
+        <Route path="/register" component={Register} />
 
         {/* <Route path="/userDashboard">
           {!token ? <Redirect to="/login" /> : <UserDashBoard />}

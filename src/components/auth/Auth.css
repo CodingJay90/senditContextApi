@@ -1,0 +1,118 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  text-align: center;
+  font-family: "Helvetica", arial;
+  letter-spacing: 8px;
+  font-size: 3rem;
+  font-weight: 400;
+}
+
+label {
+  display: block;
+  font-size: 1.2rem;
+  font-weight: 200;
+  color: #000;
+  font-family: arial;
+  text-align: left;
+}
+
+form input {
+  padding: 1em;
+  margin: 1rem auto;
+  width: 95%;
+  border: 1px solid #cecdcde8;
+  border-radius: 5px;
+}
+
+form input:focus {
+  outline-color: hsla(0, 0%, 30%, 0.863);
+}
+
+button.submit-btn {
+  padding: 1em;
+  border: blue;
+  cursor: pointer;
+  border-radius: 3px;
+  color: #fff;
+  width: 100%;
+  background: linear-gradient(90deg, #3f33e7, #15d8f1);
+}
+
+button.submit-btn:hover {
+  filter: brightness(130%);
+}
+
+/* =============== */
+.layer {
+  width: 65%;
+  margin: auto;
+  /* background: url(../../images/delivery-boy-3.jpg); */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+form {
+  padding: 3rem;
+  width: 100%;
+  margin: 1.5rem auto;
+  box-shadow: 0 0 10px rgba(6, 116, 136, 0.157);
+  border-radius: 5px;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.774);
+  background: #fff;
+}
+
+.layer form input {
+  background: rgba(187, 187, 187, 0);
+  width: 100%;
+  margin: 1rem auto;
+  transition: 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border-radius: 10px;
+}
+
+.layer form input:focus {
+  width: 100%;
+  outline-color: rgba(209, 209, 209, 0.747);
+  border: none;
+  color: #000;
+}
+
+label {
+  color: #111;
+  font-size: 200;
+  letter-spacing: 3px;
+}
+
+.layer form button.submit-btn {
+  width: 50%;
+  transition: 1s cubic-bezier(0.23, 1, 0.32, 1);
+  display: block;
+  margin: 1rem auto;
+}
+
+.layer form button.submit-btn:hover {
+  width: 100%;
+  filter: brightness(70%);
+}
+
+.layer p {
+  color: #111;
+}
+
+.layer p a {
+  color: #15d8f1;
+  filter: brightness(70%);
+}
+
+.layer p a:hover {
+  text-decoration: underline;
+}
+
+isLoading {
+  cursor: not-allowed;
+}
