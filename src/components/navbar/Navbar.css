@@ -1,0 +1,68 @@
+header {
+  background: url(../../images/delivery_man.png);
+  background-size: cover;
+  /* filter: blur(15px); */
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+  height: 15vh;
+  border-bottom: 10px solid rgba(0, 0, 0, 0.842);
+}
+
+header:before {
+  position: absolute;
+  content: " ";
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+  height: 15vh;
+  background-color: rgba(0, 0, 0, 0.808);
+}
+
+.brand {
+  font-size: 2em;
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+  display: block;
+  font-weight: 400;
+}
+
+.brand:hover {
+  border: none;
+}
+
+header nav {
+  background: transparent;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+}
+
+header nav a,
+span {
+  color: #fff;
+  display: block;
+  text-decoration: none;
+  font-size: 1.5em;
+  /* margin: 25px 20px 25px 75px; */
+  margin: 1rem auto;
+  margin-right: 1rem;
+  font-weight: 300;
+  cursor: pointer;
+  padding: 0.7rem;
+}
+
+header nav a:hover,
+header nav span:hover {
+  border: 1px solid #fff;
+  border-radius: 30px;
+}
+
+header nav ul {
+  z-index: 3;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+}
