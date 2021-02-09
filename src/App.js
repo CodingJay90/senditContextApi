@@ -4,7 +4,7 @@ import Home from "./components/home/Home";
 import "./App.css";
 // import { useContext } from "react";
 // import { AuthContext } from "./contexts/AuthContext";
-import Register from "./components/auth/Register";
+// import Register from "./components/auth/Register";
 
 function App() {
   // const state = useContext(AuthContext);
