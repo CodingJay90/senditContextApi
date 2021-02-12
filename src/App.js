@@ -7,6 +7,8 @@ import { AuthContext } from "./contexts/AuthContext";
 import Register from "./components/auth/Register";
 import Login from "./components/auth/Login";
 import UserDashBoard from "./components/userDashboard/UserDashBoard";
+import CreateParcel from "./components/parcel/CreateParcel";
+import EditPickupDestination from "./components/parcel/EditPickupDestination";
 
 function App() {
   const {
@@ -25,12 +27,12 @@ function App() {
         <Route exact path="/" component={Home} />
         <Route path="/register" component={Register} />
         <Route path="/login" component={Login} />
-        {!token ? <Redirect to="/login" /> : <UserDashBoard />}
-
-        {/* <Route path="/userDashboard">
-        </Route>
         <Route path="/createParcel" component={CreateParcel} />
-        <Route path="/editDestination" component={EditPickupDestination} /> */}
+
+        <Route path="/userDashboard">
+          {!token ? <Redirect to="/login" /> : <UserDashBoard />}
+        </Route>
+        <Route path="/editDestination" component={EditPickupDestination} />
       </Switch>
     </div>
   );

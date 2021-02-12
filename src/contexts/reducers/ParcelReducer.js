@@ -23,13 +23,10 @@ export default function (state, action) {
     case CREATE_PARCEL:
       return {
         ...state,
-        parcels: state.parcels.parcel && [
-          ...state.parcels,
-          action.payload.parcel,
-        ], //check if user has any parcel to prevent errors in react
+        parcels: state.parcels && [...state.parcels, action.payload.parcel], //check if user has any parcel to prevent errors in react
         isLoading: false,
         success: action.payload.success ? true : false,
-        errors: action.payload.errors ? action.payload : null,
+        errors: action.payload.errors ? action.payload.errors : null,
       };
     case EDIT_PICKUP_DESTINATION:
       return {

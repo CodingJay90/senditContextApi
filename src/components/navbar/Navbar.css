@@ -25,10 +25,19 @@ header:before {
   align-items: center; */
   display: block;
   font-weight: 400;
+  text-shadow: 1px 8px 7px rgba(0, 0, 0, 0.945);
+  letter-spacing: 6px;
+  transition: 0.2s linear;
 }
 
 .brand:hover {
   border: none;
+  text-shadow: 1px 12px 7px rgba(0, 0, 0, 0.945);
+  transform: scale(1.05);
+}
+
+.brand:active {
+  transform: scale(1.5);
 }
 
 header nav {
@@ -51,6 +60,13 @@ span {
   cursor: pointer;
   padding: 0.7rem;
   transition: 0.15s ease;
+}
+
+header nav a:active,
+header nav span:active {
+  border: 1px dotted #fff;
+  border-radius: 30px;
+  border-color: hsl(125, 71%, 66%);
 }
 
 header nav a:hover,

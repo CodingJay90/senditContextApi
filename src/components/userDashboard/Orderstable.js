@@ -1,29 +1,30 @@
-import React, { useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import "./OrdersTable.css";
 import Spinner from "../common/Spinner";
 import { Link } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
 
 import { toast } from "react-toastify";
+import { ParcelContext } from "../../contexts/ParcelContext";
 
 const Orderstable = ({ isLoading, parcels }) => {
   toast.configure();
-  //   const success = useSelector(
-  //     (state) => state.parcels.response !== null && state.parcels.response.success
-  //   );
-  //   console.log(success);
-  const cancelParcel = (id) => {
-    // dispatch(cancelDelivery(id));
+  const { state, cancelDelivery } = useContext(ParcelContext);
+  const success = state.response !== null && state.response;
+
+  console.log(success);
+  const cancelParcelOrder = (id) => {
+    cancelDelivery(id);
   };
 
-  //   useEffect(() => {
-  //     if (success) {
-  //       toast.success("parcel delivery cancelled");
-  //       setTimeout(() => {
-  //         window.location.reload();
-  //       }, 2500);
-  //     }
-  //   }, [success]);
+  useEffect(() => {
+    if (success) {
+      toast.success("parcel delivery cancelled");
+      setTimeout(() => {
+        window.location.reload();
+      }, 2500);
+    }
+  }, [success]);
   return (
     <div>
       {isLoading ? (
@@ -77,7 +78,7 @@ const Orderstable = ({ isLoading, parcels }) => {
                                   Edit
                                 </Link>
                                 <button
-                                  onClick={() => cancelParcel(item.id)}
+                                  onClick={() => cancelParcelOrder(item.id)}
                                   className="cancel"
                                 >
                                   Cancel

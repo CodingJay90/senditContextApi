@@ -20,7 +20,6 @@ export default function ParcelProvider({ children }) {
   const {
     state: { userInfo, token },
   } = useContext(AuthContext);
-  console.log(userInfo);
 
   useEffect(() => {
     loadParcels();
@@ -42,7 +41,7 @@ export default function ParcelProvider({ children }) {
   };
 
   const createParcel = (parcel) => {
-    // dispatch(setParcelLoading());
+    dispatch(setParcelLoading());
     fetch("https://sendit-parcel.herokuapp.com/parcels", {
       method: "POST",
       body: JSON.stringify(parcel),
@@ -100,6 +99,7 @@ export default function ParcelProvider({ children }) {
 
   const clearErrors = () => {
     dispatch({ type: types.CLEAR_ERRORS });
+    console.log("cleared");
   };
 
   const setParcelLoading = () => {

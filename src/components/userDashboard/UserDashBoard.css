@@ -108,7 +108,6 @@
 }
 
 .hero a:hover {
-  background: linear-gradient(to right, #c06b04, #a32401);
   background: linear-gradient(to right, #000022, #03637e);
 }
 
